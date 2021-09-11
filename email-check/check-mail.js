@@ -3,26 +3,20 @@ document.getElementById("submit-btn").addEventListener("click", () => {
     const res = checkEmail(emailField);
     console.log(res);
 })
+const validText = document.getElementById("valid")
+const rongText = document.getElementById("rong")
 const checkEmail = email => {
     filter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!filter.test(email)) {
-        alert('Please provide a valid email address');
         email.focus;
+        validText.classList.add("d-none")
+        rongText.classList.remove("d-none")
+
         return false;
     }
-    return "gum"
+    else {
+        rongText.classList.add("d-none")
+        validText.classList.remove("d-none")
+
+    }
 }
-
-
-/* var pattern = "^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$";
-
-function isEmailAddress(str) {
-
-    str = "azamsharp@gmail.com";
-
-    let bbb = alert(str.match(pattern));
-    console.log(bbb);
-    return str.match(pattern);
-
-
-} */
